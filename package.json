@@ -1,0 +1,19 @@
+{
+  "name": "llm-conversations",
+  "version": "1.0.0",
+  "description": "POC for OpenAI's realtime APIs",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "openai",
+    "llm",
+    "realtime"
+  ],
+  "author": "Karan Trehan",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
