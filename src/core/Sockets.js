@@ -1,7 +1,7 @@
 const { WebSocket } = require("ws");
 const DPI = require("../utils/DPI");
 
-class SocketClient {
+class Sockets {
   #socket;
   #connectedPromise;
   #closedPromise;
@@ -13,7 +13,7 @@ class SocketClient {
   #done = false;
 
   /**
-   * Creates an instance of SocketClient.
+   * Creates an instance of Sockets.
    *
    * @constructor
    * @param {Object} settings - The settings for the socket connection.
@@ -103,9 +103,9 @@ class SocketClient {
    * This handler sets the internal done flag to true, processes any remaining
    * promises in the receiver queue, and resolves the close promise.
    *
+   * @private
    * @param {Function} closeResolve - A function to resolve the promise that indicates the WebSocket has closed.
    * @returns {Function} A handler function for the 'close' event.
-   * @private
    */
   #getClosedHandler(closeResolve) {
     return (_event) => {
@@ -151,7 +151,7 @@ class SocketClient {
   }
 
   /**
-   * Asynchronous iterator for the SocketClient class.
+   * Asynchronous iterator for the Sockets class.
    *
    * @returns {Object} An object with a `next` method that returns a Promise.
    * The `next` method resolves with an object containing the next message from the queue
@@ -162,8 +162,8 @@ class SocketClient {
    * @generator
    *
    * @example
-   * const socketClient = new SocketClient();
-   * for await (const message of socketClient) {
+   * const Sockets = new Sockets();
+   * for await (const message of Sockets) {
    *   console.log(message);
    * }
    */
@@ -221,4 +221,4 @@ class SocketClient {
   }
 }
 
-module.exports = SocketClient;
+module.exports = Sockets;
