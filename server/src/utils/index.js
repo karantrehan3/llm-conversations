@@ -1,5 +1,5 @@
 /* eslint-disable */
-const DPI = require("./DPI");
+import DPI from "./DPI";
 
 const list = ["Secrets", "Helpers"];
 

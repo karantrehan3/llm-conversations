@@ -27,4 +27,4 @@ class Settings {
   }
 }
 
-module.exports = new Settings();
+export default Settings;

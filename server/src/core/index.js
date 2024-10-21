@@ -1,5 +1,5 @@
 /* eslint-disable */
-const DPI = require("../utils/DPI");
+import DPI from "../utils/DPI";
 
 const singletonInstances = ["Settings"];
 const modules = ["Sockets"];

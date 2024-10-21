@@ -1,6 +1,6 @@
-const DPI = require("../utils/DPI");
+import DPI from "../utils/DPI";
 
-class RTClient {
+class RTCClient {
   constructor() {
     this.#initClient();
   }
@@ -103,4 +103,4 @@ class RTClient {
   }
 }
 
-module.exports = RTClient;
+export default RTCClient;

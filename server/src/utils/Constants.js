@@ -347,8 +347,7 @@ class Constants {
   ResponseItem = {
     RESPONSE_MESSAGE_ITEM: this.ResponseMessageItem,
     RESPONSE_FUNCTION_CALL_ITEM: this.ResponseFunctionCallItem,
-    RESPONSE_FUNCTION_CALL_OUTPUT_ITEM:
-      this.ResponseFunctionCallOutputItem,
+    RESPONSE_FUNCTION_CALL_OUTPUT_ITEM: this.ResponseFunctionCallOutputItem,
   };
 
   ItemCreatedMessage = {
@@ -568,10 +567,8 @@ class Constants {
     ERROR_MESSAGE: this.ErrorMessage,
     SESSION_CREATED_MESSAGE: this.SessionCreatedMessage,
     SESSION_UPDATED_MESSAGE: this.SessionUpdatedMessage,
-    INPUT_AUDIO_BUFFER_COMMITTED_MESSAGE:
-      this.InputAudioBufferCommittedMessage,
-    INPUT_AUDIO_BUFFER_CLEARED_MESSAGE:
-      this.InputAudioBufferClearedMessage,
+    INPUT_AUDIO_BUFFER_COMMITTED_MESSAGE: this.InputAudioBufferCommittedMessage,
+    INPUT_AUDIO_BUFFER_CLEARED_MESSAGE: this.InputAudioBufferClearedMessage,
     INPUT_AUDIO_BUFFER_SPEECH_STARTED_MESSAGE:
       this.InputAudioBufferSpeechStartedMessage,
     INPUT_AUDIO_BUFFER_SPEECH_STOPPED_MESSAGE:
@@ -585,13 +582,10 @@ class Constants {
       this.ItemInputAudioTranscriptionFailedMessage,
     RESPONSE_CREATED_MESSAGE: this.ResponseCreatedMessage,
     RESPONSE_DONE_MESSAGE: this.ResponseDoneMessage,
-    RESPONSE_OUTPUT_ITEM_ADDED_MESSAGE:
-      this.ResponseOutputItemAddedMessage,
+    RESPONSE_OUTPUT_ITEM_ADDED_MESSAGE: this.ResponseOutputItemAddedMessage,
     RESPONSE_OUTPUT_ITEM_DONE_MESSAGE: this.ResponseOutputItemDoneMessage,
-    RESPONSE_CONTENT_PART_ADDED_MESSAGE:
-      this.ResponseContentPartAddedMessage,
-    RESPONSE_CONTENT_PART_DONE_MESSAGE:
-      this.ResponseContentPartDoneMessage,
+    RESPONSE_CONTENT_PART_ADDED_MESSAGE: this.ResponseContentPartAddedMessage,
+    RESPONSE_CONTENT_PART_DONE_MESSAGE: this.ResponseContentPartDoneMessage,
     RESPONSE_TEXT_DELTA_MESSAGE: this.ResponseTextDeltaMessage,
     RESPONSE_TEXT_DONE_MESSAGE: this.ResponseTextDoneMessage,
     RESPONSE_AUDIO_TRANSCRIPT_DELTA_MESSAGE:
@@ -608,4 +602,4 @@ class Constants {
   };
 }
 
-module.exports = new Constants();
+export default Constants;

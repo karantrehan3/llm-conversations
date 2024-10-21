@@ -37,4 +37,4 @@ class DPI {
   }
 }
 
-module.exports = new DPI();
+export default new DPI();

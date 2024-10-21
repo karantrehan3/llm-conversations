@@ -1,5 +1,4 @@
-const { WebSocket } = require("ws");
-const DPI = require("../utils/DPI");
+import { WebSocket } from "ws";
 
 class Sockets {
   #socket;
@@ -221,4 +220,4 @@ class Sockets {
   }
 }
 
-module.exports = Sockets;
+export default Sockets;

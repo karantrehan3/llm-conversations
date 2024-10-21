@@ -1,4 +1,6 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config();
 
 class Secrets {
   /**
@@ -15,4 +17,4 @@ class Secrets {
   }
 }
 
-module.exports = Secrets;
+export default Secrets;

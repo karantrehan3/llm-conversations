@@ -1,7 +1,7 @@
-const { Player } = require("./player");
-const { Recorder } = require("./recorder");
-require("./style.css");
-const { RTCClient } = require("rt-client");
+import { RTCClient } from "rt-client";
+import { Player } from "./player";
+import { Recorder } from "./recorder";
+import "./style.css";
 
 let realtimeStreaming;
 let audioRecorder;
