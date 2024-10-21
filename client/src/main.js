@@ -172,9 +172,9 @@ const formVoiceSelection = document.querySelector("#voice");
 let latestInputSpeechBlock;
 
 const InputState = {
-  Working,
-  ReadyToStart,
-  ReadyToStop,
+  Working: "Working",
+  ReadyToStart: "ReadyToStart",
+  ReadyToStop: "ReadyToStop",
 };
 
 function isAzureOpenAI() {

@@ -4,16 +4,18 @@ import DPI from "../utils/DPI";
 const singletonInstances = ["Settings"];
 const modules = ["Sockets"];
 
-try {
-  let Core;
-  singletonInstances.forEach((name) => {
-    Core = require(`./${name}`);
-    DPI.factory(name, () => new Core());
-  });
-  modules.forEach((name) => {
-    Core = require(`./${name}`);
-    DPI.module(name, () => new Core());
-  });
-} catch (error) {
-  console.error(error);
-}
+(async () => {
+  try {
+    let Core;
+    for (const name of singletonInstances) {
+      Core = await import(`./${name}`);
+      DPI.factory(name, () => new Core());
+    }
+    for (const name of modules) {
+      Core = await import(`./${name}`);
+      DPI.module(name, () => new Core());
+    }
+  } catch (error) {
+    console.error(error);
+  }
+})();
