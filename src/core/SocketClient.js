@@ -1,3 +1,4 @@
+const { WebSocket } = require("ws");
 const DPI = require("../utils/DPI");
 
 class SocketClient {
@@ -5,9 +6,9 @@ class SocketClient {
   #connectedPromise;
   #closedPromise;
   #error;
-  #messageQueue = [];
   #validate;
   #serialize;
+  #messageQueue = [];
   #receiverQueue = [];
   #done = false;
 
@@ -32,7 +33,7 @@ class SocketClient {
     this.#serialize = handler.serialize;
     this.#connectedPromise = new Promise(async (resolve, reject) => {
       try {
-        this.#socket = await DPI.get("Sockets").getWebsocket(settings);
+        this.#socket = await this.getSocket(settings);
         this.#socket.onopen = () => {
           this.#socket.onmessage = this.#getMessageHandler();
           this.#closedPromise = new Promise((resolve) => {
@@ -48,6 +49,38 @@ class SocketClient {
       } catch (error) {
         reject(error);
       }
+    });
+  }
+
+  /**
+   * Establishes a new socket connection with the given settings.
+   *
+   * @param {Object} settings - The settings for the socket connection.
+   * @param {string} settings.uri - The URI to connect to.
+   * @param {Array<string>} [settings.protocols] - Optional protocols to use for the connection.
+   * @param {Object} [settings.headers] - Optional headers to include in the connection request.
+   * @param {Function} [settings.policy] - Optional policy function to modify settings before connection.
+   * @returns {Promise<WebSocket>} A promise that resolves to the new WebSocket instance.
+   */
+  async getSocket(settings) {
+    if (settings.policy != undefined) {
+      settings = await settings.policy(settings);
+    }
+    return new WebSocket(settings.uri, settings.protocols, {
+      headers: settings.headers,
+    });
+  }
+
+  /**
+   * Sends a message through the provided socket.
+   *
+   * @param {WebSocket} socket - The WebSocket through which the message will be sent.
+   * @param {string|ArrayBufferLike|ArrayBufferView} message - The message to be sent.
+   * @returns {Promise<void>} A promise that resolves when the message is successfully sent, or rejects with an error if the send fails.
+   */
+  sendMessage(socket, message) {
+    return new Promise((resolve, reject) => {
+      socket.send(message, (error) => (error ? reject(error) : resolve()));
     });
   }
 
@@ -166,7 +199,7 @@ class SocketClient {
       throw this.#error;
     }
     const serialized = this.#serialize(message);
-    return this.DPI.get("Sockets").sendMessage(this.#socket, serialized);
+    return this.sendMessage(this.#socket, serialized);
   }
 
   /**

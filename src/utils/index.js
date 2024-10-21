@@ -1,7 +1,7 @@
 /* eslint-disable */
 const DPI = require("./DPI");
 
-const list = ["Sockets"];
+const list = ["Secrets", "Helpers"];
 
 try {
   let Util;
