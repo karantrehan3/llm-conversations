@@ -1,5 +1,5 @@
 {
-  "name": "llm-conversations",
+  "name": "llm-conversations-be",
   "version": "1.0.0",
   "description": "POC for OpenAI's realtime APIs",
   "main": "src/server.js",
