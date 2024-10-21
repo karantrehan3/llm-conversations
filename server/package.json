@@ -1,8 +1,8 @@
 {
-  "name": "llm-conversations-be",
+  "name": "llm-conversations-server",
   "version": "1.0.0",
   "description": "POC for OpenAI's realtime APIs",
-  "main": "src/server.js",
+  "main": "index.js",
   "scripts": {
     "test": "npm run test"
   },
@@ -16,5 +16,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
   }
 }

@@ -1,7 +1,6 @@
 const DPI = require("../utils/DPI");
-const Sockets = require("./Sockets");
 
-export class RTClient {
+class RTClient {
   constructor() {
     this.#initClient();
   }
@@ -46,7 +45,7 @@ export class RTClient {
       },
     };
 
-    return new Sockets(settings, handler);
+    return new DPI.get("Sockets")(settings, handler);
   }
 
   /**
@@ -86,7 +85,7 @@ export class RTClient {
 
   /**
    * Sends a message using the client.
-   * 
+   *
    * @param {string} message - The message to be sent.
    * @returns {Promise<void>} A promise that resolves when the message is sent.
    */
@@ -103,3 +102,5 @@ export class RTClient {
     await this.client.close();
   }
 }
+
+module.exports = RTClient;
